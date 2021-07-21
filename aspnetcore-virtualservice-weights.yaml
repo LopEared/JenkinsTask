@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: aspnetcore-virtualservice
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - aspnetcore-gateway
+  http:
+  - route:
+    - destination:
+        host: aspnetcore-service
+        subset: v1
+      weight: 10
+    - destination:
+        host: aspnetcore-service
+        subset: v2
+      weight: 90

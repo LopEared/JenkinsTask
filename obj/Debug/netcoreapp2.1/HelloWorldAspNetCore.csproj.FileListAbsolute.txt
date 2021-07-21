@@ -1,0 +1,64 @@
+/home/dey_chaitali/HelloWorldAspNetCore/bin/Debug/netcoreapp2.1/HelloWorldAspNetCore.deps.json
+/home/dey_chaitali/HelloWorldAspNetCore/bin/Debug/netcoreapp2.1/HelloWorldAspNetCore.runtimeconfig.json
+/home/dey_chaitali/HelloWorldAspNetCore/bin/Debug/netcoreapp2.1/HelloWorldAspNetCore.runtimeconfig.dev.json
+/home/dey_chaitali/HelloWorldAspNetCore/bin/Debug/netcoreapp2.1/HelloWorldAspNetCore.dll
+/home/dey_chaitali/HelloWorldAspNetCore/bin/Debug/netcoreapp2.1/HelloWorldAspNetCore.pdb
+/home/dey_chaitali/HelloWorldAspNetCore/bin/Debug/netcoreapp2.1/HelloWorldAspNetCore.Views.dll
+/home/dey_chaitali/HelloWorldAspNetCore/bin/Debug/netcoreapp2.1/HelloWorldAspNetCore.Views.pdb
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.csprojAssemblyReference.cache
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.csproj.CoreCompileInputs.cache
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.RazorAssemblyInfo.cache
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.RazorAssemblyInfo.cs
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.AssemblyInfoInputs.cache
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.AssemblyInfo.cs
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.TagHelpers.input.cache
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.TagHelpers.output.cache
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.RazorCoreGenerate.cache
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/Razor/Views/Home/About.g.cshtml.cs
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/Razor/Views/Home/Contact.g.cshtml.cs
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/Razor/Views/Home/Index.g.cshtml.cs
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/Razor/Views/Home/Privacy.g.cshtml.cs
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/Razor/Views/Shared/Error.g.cshtml.cs
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_CookieConsentPartial.g.cshtml.cs
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_Layout.g.cshtml.cs
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_ValidationScriptsPartial.g.cshtml.cs
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/Razor/Views/_ViewImports.g.cshtml.cs
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/Razor/Views/_ViewStart.g.cshtml.cs
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.RazorTargetAssemblyInfo.cache
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.RazorTargetAssemblyInfo.cs
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.Views.pdb
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.dll
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.pdb
+/home/dey_chaitali/HelloWorldAspNetCore/obj/Debug/netcoreapp2.1/HelloWorldAspNetCore.csproj.CopyComplete
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\bin\Debug\netcoreapp2.1\HelloWorldAspNetCore.deps.json
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\bin\Debug\netcoreapp2.1\HelloWorldAspNetCore.runtimeconfig.json
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\bin\Debug\netcoreapp2.1\HelloWorldAspNetCore.runtimeconfig.dev.json
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\bin\Debug\netcoreapp2.1\HelloWorldAspNetCore.dll
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\bin\Debug\netcoreapp2.1\HelloWorldAspNetCore.pdb
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\bin\Debug\netcoreapp2.1\HelloWorldAspNetCore.Views.dll
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\bin\Debug\netcoreapp2.1\HelloWorldAspNetCore.Views.pdb
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.csprojAssemblyReference.cache
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.csproj.CoreCompileInputs.cache
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.RazorAssemblyInfo.cache
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.RazorAssemblyInfo.cs
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.AssemblyInfoInputs.cache
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.AssemblyInfo.cs
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.TagHelpers.input.cache
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.TagHelpers.output.cache
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.RazorCoreGenerate.cache
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.RazorTargetAssemblyInfo.cache
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.RazorTargetAssemblyInfo.cs
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.Views.pdb
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.dll
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.pdb
+C:\Users\Chaitali\Desktop\new requirement\dey_chaitali (1)\HelloWorldAspNetCore\obj\Debug\netcoreapp2.1\HelloWorldAspNetCore.csproj.CopyComplete
