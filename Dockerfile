@@ -15,7 +15,7 @@ COPY . .
 RUN dotnet publish -c Release -o out
 
 # Make sure the app binds to port 8080
-ENV ASPNETCORE_URLS http://*:8080
+ENV ASPNETCORE_URLS http://*:7070
 
 # Run the web service on container startup.
 CMD ["dotnet", "out/HelloWorldAspNetCore.dll"]
