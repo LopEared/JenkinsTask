@@ -14,3 +14,4 @@ Implementation tasks:
 8) Configure dependency of the deployment task on the build task.
 9) Configure the dependence of the backup task on the deployment task.
 10) Configure a repository scan for a new commit.
+sdfsdfaadawgfa
