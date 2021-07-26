@@ -11,3 +11,6 @@ Implementation tasks:
     - Tune credentials for GitHub by plugin "Git"
     - Tune connecteion between  Jenkins  & server for warehousung by plugin "Publish over SSH"
 7) Write control script for Jenkins-Job
+8) Configure dependency of the deployment task on the build task.
+9) Configure the dependence of the backup task on the deployment task.
+10) Configure a repository scan for a new commit.
