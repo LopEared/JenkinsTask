@@ -49,7 +49,7 @@ pipeline {
             steps {
                 echo "<------------Start Dispatching image-------------->"
                 sh '''
-                    scp -Cv *.tar mikuser@test:/home/mikuser/Warehous
+                    scp /*.tar mikuser@test:/home/mikuser/Warehous
                 '''
                 
                 
