@@ -71,13 +71,23 @@ pipeline {
             steps {
                 echo "<------------Start BackUp image-------------->"
                 sh '''
-                    echo "<------------This is machine: $NODE_NAME--------------->" 
                     echo
-                    echo "<------------This is workspace: $WORKSPACE------------->" 
+                        pwd
                     echo
-                    whoami
-                    hostname
-                    ip addr
+                        ls -l
+
+                    #Prepare directories
+                    mkdir -p ~/JenkWorkpl/$JOB_NAME                                          # Common directory for  project
+                    mkdir -p ~/JenkWorkpl/$JOB_NAME/ACTUAL_VER                               # Actual version directory
+                    mkdir -p ~/JenkWorkpl/$JOB_NAME-$BUILD_NUMBER                            # Current version project image
+
+                    cd ~/JenkWorkpl/$JOB_NAME/ACTUAL_VER                                     # Go to Actual version directory
+                    rm *                                                                     # Delete all files from  Actual version directory
+                    cd ~/Warehous                                                            # Go to temporary directory 
+                    cp * ~/JenkWorkpl/$JOB_NAME/ACTUAL_VER                                   # Copy  file to Actual version directory
+                    cp * ~/JenkWorkpl/$JOB_NAME-$BUILD_NUMBER                                # Copy  file from  temporary directory  to Current version project image folder
+                    rm *                                                                     #  Delete all files from  temporary directory 
+                    mv ~/JenkWorkpl/$JOB_NAME-$BUILD_NUMBER ~/JenkWorkpl/$JOB_NAME           # Move Current version project image folder to Common directory for  project
                     
                 '''
                 echo "<------------Finish BackUp image------------->"
