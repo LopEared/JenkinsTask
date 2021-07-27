@@ -39,7 +39,12 @@ pipeline {
                     rm -f *.tar
                     echo
                     docker save "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" > "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER".tar
-                    echo 
+                    echo
+                    echo "<-----------Remove unnecessary after build image------------->"
+                    docker rmi -f "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" #Remove unnecessary image 
+                    echo
+                    docker images
+                    echo
                     ls -lsh
                 '''
                 echo "<------------Finish build image------------->"
@@ -49,10 +54,12 @@ pipeline {
             steps {
                 echo "<------------Start Dispatching image-------------->"
                 sh '''
+                    echo "<-------Copy image archive to deployment server--------->"
                     scp /*.tar mikuser@test:/home/mikuser/Warehous
-                '''
-                
-                
+                    echo "<-------#Remove unnecessary archives --------->"
+                    rm -f *.tar
+                    
+                '''              
                 echo "<------------Finish Dispatching image------------->"
             }
         }
