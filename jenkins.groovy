@@ -69,7 +69,7 @@ pipeline {
                 label 'Slave3'
             }
             steps {
-                echo "<------------Start BackUp image-------------->"
+                echo "<----------------------------Start BackUp image---------------------------------------->"
                 sh '''
                     echo
                         pwd
@@ -79,6 +79,7 @@ pipeline {
                     #Prepare directories
                     mkdir -p ~/JenkWorkpl/$JOB_NAME                                          # Common directory for  project
                     mkdir -p ~/JenkWorkpl/$JOB_NAME/ACTUAL_VER                               # Actual version directory
+                    mkdir -p ~/JenkWorkpl/$JOB_NAME/BackUps                                  #Common directory for  BackUps
                     mkdir -p ~/JenkWorkpl/$JOB_NAME-$BUILD_NUMBER                            # Current version project image
 
                     cd ~/JenkWorkpl/$JOB_NAME/ACTUAL_VER                                     # Go to Actual version directory
@@ -87,9 +88,20 @@ pipeline {
                     cp * ~/JenkWorkpl/$JOB_NAME/ACTUAL_VER                                   # Copy  file to Actual version directory
                     cp * ~/JenkWorkpl/$JOB_NAME-$BUILD_NUMBER                                # Copy  file from  temporary directory  to Current version project image folder
                     pwd
-                    rm -f ./*                                                             #  Delete all files from  temporary directory 
+                    rm -f ./*                                                                #  Delete all files from  temporary directory 
                     mv ~/JenkWorkpl/$JOB_NAME-$BUILD_NUMBER ~/JenkWorkpl/$JOB_NAME           # Move Current version project image folder to Common directory for  project
-                    
+                    echo "<----------------------------Start BackUp image---------------------------------------->"
+                    echo
+                    cd ~/JenkWorkpl/$JOB_NAME/BackUps  
+                    echo
+                    pwd
+                    echo
+                    cp ~/JenkWorkpl/$JOB_NAME/ACTUAL_VER/* ~/JenkWorkpl/$JOB_NAME/BackUps
+                    echo
+                    rm -f "$ImageName-$(($BUILD_NUMBER-3)):$(($BUILD_NUMBER-3))"
+                    echo
+                    ls -lsh
+                                       
                 '''
                 echo "<------------Finish BackUp image------------->"
             }
