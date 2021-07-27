@@ -82,7 +82,7 @@ pipeline {
                     mkdir -p ~/JenkWorkpl/$JOB_NAME-$BUILD_NUMBER                            # Current version project image
 
                     cd ~/JenkWorkpl/$JOB_NAME/ACTUAL_VER                                     # Go to Actual version directory
-                    rm *                                                                     # Delete all files from  Actual version directory
+                    rm ./*                                                                   # Delete all files from  Actual version directory
                     cd ~/Warehous                                                            # Go to temporary directory 
                     cp * ~/JenkWorkpl/$JOB_NAME/ACTUAL_VER                                   # Copy  file to Actual version directory
                     cp * ~/JenkWorkpl/$JOB_NAME-$BUILD_NUMBER                                # Copy  file from  temporary directory  to Current version project image folder
