@@ -19,9 +19,7 @@ pipeline {
             steps {
                 echo "<------------Start build image-------------->"
                 sh '''
-                    echo "Number build#:${env.BUILD_ID}"
-                    echo "Job name is:${env.JOB_NAME}"
-                    echo "Node name is:${env.NODE_NAME}"
+                    
                     docker build -t "$trainimage-${env.BUILD_ID}:${env.BUILD_ID}" .'
                 '''
                 echo "<------------Finish build image------------->"
