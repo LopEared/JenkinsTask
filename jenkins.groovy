@@ -18,7 +18,7 @@ pipeline {
         stage('Example') {
             steps {
                 sh 'printenv'
-                sh 'ssh mikuser@ubServ2 \ 'hostname\''
+                sh 'ssh mikuser@ubServ2 \'hostname\''
             }
         }
     }
