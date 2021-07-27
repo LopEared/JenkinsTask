@@ -55,7 +55,7 @@ pipeline {
                 echo "<------------Start Dispatching image-------------->"
                 sh '''
                     echo "<-------Copy image archive to deployment server--------->"
-                    scp /*.tar mikuser@test:/home/mikuser/Warehous
+                    scp ./*.tar mikuser@test:/home/mikuser/Warehous
                     echo "<-------#Remove unnecessary archives --------->"
                     rm -f *.tar
                     
