@@ -23,14 +23,7 @@ pipeline {
         stage('Docker_CI') {
             steps('Create_artifact') {
                 echo "<------------Start build image-------------->"
-               
                 sh '''
-<<<<<<< HEAD
-                    #echo "Number build#:${env.BUILD_ID}"
-                    echo "Job name is:${env.JOB_NAME}"
-                    echo "Node name is:${env.NODE_NAME}"
-                    docker build -t "trainimage-${env.BUILD_ID}:${env.BUILD_ID}" .'
-=======
                     echo "$BUILD_NUMBER"
                     echo "$JOB_NAME"
                     echo "$NODE_NAME"
@@ -52,13 +45,10 @@ pipeline {
                     docker images
                     echo
                     ls -lsh
->>>>>>> 90bdc5853d55d8763b60ce72cf31d5de289868b3
                 '''
                 echo "<------------Finish build image------------->"
             }
-        }
-        stage('Docker_CD') {
-            steps {
+            steps('Dispatch_artifact') {
                 echo "<------------Start Dispatching image-------------->"
                 sh '''
                     echo "<-------Copy image archive to deployment server--------->"
@@ -69,6 +59,11 @@ pipeline {
                     ls -lsh                    
                 '''              
                 echo "<------------Finish Dispatching image------------->"
+            }
+        }
+        stage('Docker_CD') {
+            steps {
+             
             }
         }
         stage('Docker_BackUp') {
