@@ -100,11 +100,23 @@ pipeline {
                     echo
                     rm -f "$ImageName-$(($BUILD_NUMBER-3)):$(($BUILD_NUMBER-3))"
                     echo
-                    ls -lsh
-                                       
+                    ls -lsh                     
                 '''
-                echo "<------------Finish BackUp image------------->"
+                echo "<----------------------------Finish BackUp image---------------------------------------->"
             }
+        }
+        stage('Deployment'){
+            agent {
+                label 'Slave3'
+            }
+            steps {
+                echo "<----------------------------Start Deployment image----------------------------------------->"
+                sh'''
+                
+                '''
+                echo "<----------------------------Finish Deployment image---------------------------------------->"
+            }
+                                    
         }
     }
 }
