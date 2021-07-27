@@ -48,6 +48,11 @@ pipeline {
         stage('Docker_CD') {
             steps {
                 echo "<------------Start Dispatching image-------------->"
+                sh '''
+                    scp -Cv *.tar mikuser@test:/home/mikuser/Warehous
+                '''
+                
+                
                 echo "<------------Finish Dispatching image------------->"
             }
         }
