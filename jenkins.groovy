@@ -74,6 +74,11 @@ pipeline {
                     echo "<------------This is machine: $NODE_NAME--------------->" 
                     echo
                     echo "<------------This is workspace: $WORKSPACE------------->" 
+                    echo
+                    whoami
+                    hostname
+                    ip addr
+                    
                 '''
                 echo "<------------Finish BackUp image------------->"
             }
