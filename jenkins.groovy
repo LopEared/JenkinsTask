@@ -23,6 +23,7 @@ pipeline {
         stage('Docker_CI') {
             steps('Create_artifact') {
                 echo "<------------Start build image-------------->"
+               
                 sh '''
                     echo "$BUILD_NUMBER"
                     echo "$JOB_NAME"
@@ -48,7 +49,9 @@ pipeline {
                 '''
                 echo "<------------Finish build image------------->"
             }
-            steps('Dispatch_artifact') {
+        }
+        stage('Docker_CD') {
+            steps {
                 echo "<------------Start Dispatching image-------------->"
                 sh '''
                     echo "<-------Copy image archive to deployment server--------->"
@@ -59,11 +62,6 @@ pipeline {
                     ls -lsh                    
                 '''              
                 echo "<------------Finish Dispatching image------------->"
-            }
-        }
-        stage('Docker_CD') {
-            steps {
-             
             }
         }
         stage('Docker_BackUp') {
