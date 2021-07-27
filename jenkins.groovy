@@ -5,7 +5,7 @@ properties([disableConcurrentBuilds()])
 
 pipeline {
     agent {
-        label 'Slave_1'
+        label 'Slave 1'
     }
     options{
         buildDiscarder(logRotator(numToKeepStr: '3', artifactNumToKeepStr: '3'))
@@ -14,11 +14,17 @@ pipeline {
     environment { 
         CC = 'clang'
     }
-    stages {
-        stage('Example') {
+    stages('Docker_CI') {
+        stage('Create_artifact') {
             steps {
-                sh 'printenv'
-                sh 'ssh mikuser@ubServ2 \'hostname\''
+                echo "<------------Start build image-------------->"
+                sh '''
+                    echo "Number build#:${env.BUILD_ID}"
+                    echo "Job name is:${env.JOB_NAME}"
+                    echo "Node name is:${env.NODE_NAME}"
+                    docker build -t "$trainimage-${env.BUILD_ID}:${env.BUILD_ID}" .'
+                '''
+                echo "<------------Finish build image------------->"
             }
         }
     }
