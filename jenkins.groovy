@@ -24,12 +24,19 @@ pipeline {
             steps('Create_artifact') {
                 echo "<------------Start build image-------------->"
                
-                sh 'docker build -t "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" .'
                 sh '''
                     echo "$BUILD_NUMBER"
                     echo "$JOB_NAME"
                     echo "$NODE_NAME"
                     echo "$WORKSPACE"
+                    echo
+                    docker build -t "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" .
+                    echo
+                    docker rmi -f "$ImageName-$(($BUILD_NUMBER-1)):$(($BUILD_NUMBER-1))"
+                    echo
+                    docker images
+                    echo
+                
                 '''
                 echo "<------------Finish build image------------->"
             }
