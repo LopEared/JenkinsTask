@@ -128,7 +128,7 @@ pipeline {
                     echo
                     docker ps -a
                     echo
-                    docker stop "ServiceCurrent-$Previous_Job_Number"
+                    docker stop "ServiceCurrent-$BUILD_NUMBER"
                     echo
                     docker image prune
                     echo
