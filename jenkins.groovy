@@ -36,7 +36,11 @@ pipeline {
                     echo
                     docker images
                     echo
-                
+                    rm -f *.tar
+                    echo
+                    docker save "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" > "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER".tar
+                    echo 
+                    ls -lsh
                 '''
                 echo "<------------Finish build image------------->"
             }
