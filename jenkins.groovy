@@ -110,11 +110,31 @@ pipeline {
                 label 'Slave3'
             }
             steps {
-                echo "<----------------------------Start Deployment image----------------------------------------->"
+                echo "<----------------------------Start Deployment service----------------------------------------->"
                 sh'''
-                
+                    cd ~/JenkWorkpl/$JOB_NAME/ACTUAL_VER 
+                    pwd
+                    ls -lsh
+
+                    docker load -i "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER".tar
+                    echo
+                    docker rmi -f "$ImageName-$(($BUILD_NUMBER-1)):$(($BUILD_NUMBER-1))"
+                    echo
+                    docker images 
+                    echo
+                    docker run --rm -d --name "ServiceCurrent-$BUILD_NUMBER" "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" 
+                    echo
+                    docker ps
+                    echo
+                    docker ps -a
+                    echo
+                    docker stop "ServiceCurrent-$Previous_Job_Number"
+                    echo
+                    docker image prune
+                    echo
+                    docker images
                 '''
-                echo "<----------------------------Finish Deployment image---------------------------------------->"
+                echo "<----------------------------Finish Deployment service---------------------------------------->"
             }
                                     
         }
