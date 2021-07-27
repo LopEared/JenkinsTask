@@ -58,14 +58,23 @@ pipeline {
                     scp ./*.tar mikuser@test:/home/mikuser/Warehous
                     echo "<-------#Remove unnecessary archives --------->"
                     rm -f *.tar
-                    
+                    echo
+                    ls -lsh                    
                 '''              
                 echo "<------------Finish Dispatching image------------->"
             }
         }
         stage('Docker_BackUp') {
+            agent {
+                label 'Slave3'
+            }
             steps {
                 echo "<------------Start BackUp image-------------->"
+                sh '''
+                    echo "<------------This is machine: $NODE_NAME--------------->" 
+                    echo
+                    echo "<------------This is workspace: $WORKSPACE------------->" 
+                '''
                 echo "<------------Finish BackUp image------------->"
             }
         }
