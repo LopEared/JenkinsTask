@@ -49,9 +49,7 @@ pipeline {
                 '''
                 echo "<------------Finish build image------------->"
             }
-        }
-        stage('Docker_CD') {
-            steps {
+            steps('Dispatch_artifact'){
                 echo "<------------Start Dispatching image-------------->"
                 sh '''
                     echo "<-------Copy image archive to deployment server--------->"
@@ -94,5 +92,10 @@ pipeline {
                 echo "<------------Finish BackUp image------------->"
             }
         }
+        stage('Docker_CD') {
+            steps { 
+            }
+        }
+
     }
 }
