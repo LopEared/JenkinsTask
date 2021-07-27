@@ -13,14 +13,24 @@ pipeline {
     }
     environment { 
         CC = 'clang'
+        BUILD_NUMBER    = "${env.BUILD_NUMBER}"
+        JOB_NAME        = "${env.JOB_NAME}"
+        NODE_NAME       = "${env.NODE_NAME}"
+        WORKSPACE       = "${env.WORKSPACE}"
+        ImageName       = "trainimage"
     }
     stages('WorkFlow') {
         stage('Docker_CI') {
             steps('Create_artifact') {
                 echo "<------------Start build image-------------->"
                
-                sh 'docker build -t "trainimage-1:1" .'
-               
+                sh 'docker build -t "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" .'
+                sh '''
+                    echo "$BUILD_NUMBER"
+                    echo "$JOB_NAME"
+                    echo "$NODE_NAME"
+                    echo "$WORKSPACE"
+                '''
                 echo "<------------Finish build image------------->"
             }
         }
