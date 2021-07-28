@@ -122,7 +122,8 @@ pipeline {
                     echo
                     docker images 
                     echo
-                    docker run --rm -d --name "ServiceCurrent-$BUILD_NUMBER" "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" 
+                    #docker run --rm -d --name ExperCat -p 4040:8080 tomcat:8.5.38
+                    docker run --rm -d --name "ServiceCurrent-$BUILD_NUMBER" -p 4040:8080 "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" 
                     echo
                     docker ps
                     echo
