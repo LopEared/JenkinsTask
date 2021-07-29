@@ -19,6 +19,10 @@ pipeline {
         WORKSPACE       = "${env.WORKSPACE}"
         ImageName       = "trainimage"
     }
+    parameters {
+        choice(name: 'ImageName', choices: ['trainimage', 'assemblimage', 'obraz'], description: 'Take name for docker image for web service')
+        choice(name: 'ServiceCurrent', choices: ['Our_Web_Service', 'ServiceCurrent', 'CurrentContainer'], description: 'Take name for docker container for web service')
+    }
     stages('WorkFlow') {
         stage('Docker_CI') {
             steps('Create_artifact') {
@@ -140,21 +144,18 @@ pipeline {
                                     
         }
     }
-    post('Last_Actions'){
+    post {
         always{
-            steps(){
+            steps('WareHousing_artifacts') {
                 echo "<------------Post build actions START-------------->"
                 echo "<------------Post build actions Finish------------->"
             }
         }
         cleanup{
-            steps(){
+            steps('Cleaning') {
                 echo "<------------Cleaning START-------------->"
                 echo "<------------Cleaning Finish------------->"
             }
         }
-    }    
-    
-    
-    
+    }     
 }
