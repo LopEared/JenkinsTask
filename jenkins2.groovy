@@ -27,12 +27,19 @@ pipeline {
         stage('Docker_CI') {
             steps('Create_artifact') {
                 echo "<------------Start build image-------------->"
-               
+                echo "Image name will be: ${params.ImageName}"
+                echo "Container name will be: ${params.ServiceCurrent}"
                 sh '''
                     echo "$BUILD_NUMBER"
                     echo "$JOB_NAME"
                     echo "$NODE_NAME"
                     echo "$WORKSPACE"
+                    echo "<-------Start Parameters output section------->"
+                    echo "Name of image: ${params.ImageName}"
+                    echo
+                    echo "Name of container: ${params.ServiceCurrent}"
+                    echo
+                    echo "<-------Finish Parameters output section------->"
                     echo
                     docker build -t "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" .
                     echo
