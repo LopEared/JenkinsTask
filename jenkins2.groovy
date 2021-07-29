@@ -138,10 +138,32 @@ pipeline {
                     docker rmi -f "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER"
                     echo
                     docker images
+                    ls -l ~/JenkWorkpl/PipeLine2/ACTUAL_VER
+                    echo
+                    ls -l ~/JenkWorkpl/PipeLine2/BackUps
+                    echo
+                    ls -l ~/JenkWorkpl/$JOB_NAME-$BUILD_NUMBER
+                    echo
                 '''
                 echo "<----------------------------Finish Deployment service---------------------------------------->"
             }
                                     
         }
     }
+    post {
+        always{
+            steps('WareHousing_artifacts') {
+                echo "<------------Post build actions START-------------->"
+                archiveArtifacts(artifacts: './*.groovy', fingerprint: false, allowEmptyArchive: false)
+                echo "<------------Post build actions Finish------------->"
+            }
+        }
+        cleanup{
+            steps('Cleaning') {
+                echo "<------------Cleaning START-------------->"
+                cleanWs(cleanWhenSuccess: true)
+                echo "<------------Cleaning Finish------------->"
+            }
+        }
+    }     
 }
