@@ -17,7 +17,10 @@ pipeline {
         JOB_NAME        = "${env.JOB_NAME}"
         NODE_NAME       = "${env.NODE_NAME}"
         WORKSPACE       = "${env.WORKSPACE}"
-        ImageName       = "trainimage"
+    }
+    parameters{
+        choice(name: 'ImageName', choices: ['trainimage', 'assemblimage', 'obraz'], description: 'Take name for docker image for web service')
+        choice(name: 'ServiceCurrent', choices: ['Our_Web_Service', 'ServiceCurrent', 'CurrentContainer'], description: 'Take name for docker container for web service')
     }
     stages('WorkFlow') {
         stage('Docker_CI') {
@@ -123,14 +126,14 @@ pipeline {
                     docker images 
                     echo
                     #docker run --rm -d --name ExperCat -p 4040:8080 tomcat:8.5.38
-                    docker run --rm -d --name "ServiceCurrent-$BUILD_NUMBER" -p 4040:7070 "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" 
+                    docker run --rm -d --name "$ServiceCurrent-$BUILD_NUMBER" -p 4040:7070 "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" 
                     curl http://172.18.144.193:4040/
                     echo
                     docker ps
                     echo
                     docker ps -a
                     echo
-                    docker stop "ServiceCurrent-$BUILD_NUMBER"
+                    docker stop "$ServiceCurrent-$BUILD_NUMBER"
                     echo
                     docker image prune
                     echo
@@ -141,6 +144,14 @@ pipeline {
                 echo "<----------------------------Finish Deployment service---------------------------------------->"
             }
                                     
+        }
+    }
+    post{
+        always{
+
+        }
+        cleanup{
+
         }
     }
 }
