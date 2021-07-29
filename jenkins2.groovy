@@ -142,7 +142,7 @@ pipeline {
                     echo
                     ls -l ~/JenkWorkpl/PipeLine2/BackUps
                     echo
-                    ls -l ~/JenkWorkpl/$JOB_NAME-$BUILD_NUMBER
+                    ls -l ~/JenkWorkpl/$JOB_NAME/$JOB_NAME-$BUILD_NUMBER
                     echo
                 '''
                 echo "<----------------------------Finish Deployment service---------------------------------------->"
