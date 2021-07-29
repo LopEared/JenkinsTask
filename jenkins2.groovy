@@ -127,7 +127,7 @@ pipeline {
                     echo
                     #docker run --rm -d --name ExperCat -p 4040:8080 tomcat:8.5.38
                     docker run --rm -d --name "$ServiceCurrent-$BUILD_NUMBER" -p 4040:7070 "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" 
-                    curl http://172.18.144.193:4040/
+                    #curl http://172.18.144.193:4040/
                     echo
                     docker ps
                     echo
