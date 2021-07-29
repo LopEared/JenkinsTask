@@ -21,6 +21,7 @@ pipeline {
     parameters{
         choice(name: 'ImageName', choices: ['trainimage', 'assemblimage', 'obraz'], description: 'Take name for docker image for web service')
         choice(name: 'ServiceCurrent', choices: ['Our_Web_Service', 'ServiceCurrent', 'CurrentContainer'], description: 'Take name for docker container for web service')
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
     }
     stages('WorkFlow') {
         stage('Docker_CI') {
@@ -33,18 +34,18 @@ pipeline {
                     echo "$NODE_NAME"
                     echo "$WORKSPACE"
                     echo
-                    docker build -t "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" .
+                    docker build -t "${params.ImageName}-$BUILD_NUMBER:$BUILD_NUMBER" .
                     echo
-                    docker rmi -f "$ImageName-$(($BUILD_NUMBER-1)):$(($BUILD_NUMBER-1))"
+                    docker rmi -f "${params.ImageName}-$(($BUILD_NUMBER-1)):$(($BUILD_NUMBER-1))"
                     echo
                     docker images
                     echo
                     rm -f *.tar
                     echo
-                    docker save "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" > "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER".tar
+                    docker save "${params.ImageName}-$BUILD_NUMBER:$BUILD_NUMBER" > "${params.ImageName}-$BUILD_NUMBER:$BUILD_NUMBER".tar
                     echo
                     echo "<-----------Remove unnecessary after build image------------->"
-                    docker rmi -f "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" #Remove unnecessary image 
+                    docker rmi -f "${params.ImageName}-$BUILD_NUMBER:$BUILD_NUMBER" #Remove unnecessary image 
                     echo
                     docker images
                     echo
@@ -101,7 +102,7 @@ pipeline {
                     echo
                     cp ~/JenkWorkpl/$JOB_NAME/ACTUAL_VER/* ~/JenkWorkpl/$JOB_NAME/BackUps
                     echo
-                    rm -f "$ImageName-$(($BUILD_NUMBER-3)):$(($BUILD_NUMBER-3))"
+                    rm -f "${params.ImageName}-$(($BUILD_NUMBER-3)):$(($BUILD_NUMBER-3))"
                     echo
                     ls -lsh                     
                 '''
@@ -119,25 +120,25 @@ pipeline {
                     pwd
                     ls -lsh
 
-                    docker load -i "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER".tar
+                    docker load -i "${params.ImageName}-$BUILD_NUMBER:$BUILD_NUMBER".tar
                     echo
-                    docker rmi -f "$ImageName-$(($BUILD_NUMBER-1)):$(($BUILD_NUMBER-1))"
+                    docker rmi -f "${params.ImageName}-$(($BUILD_NUMBER-1)):$(($BUILD_NUMBER-1))"
                     echo
                     docker images 
                     echo
                     #docker run --rm -d --name ExperCat -p 4040:8080 tomcat:8.5.38
-                    docker run --rm -d --name "$ServiceCurrent-$BUILD_NUMBER" -p 4040:7070 "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" 
+                    docker run --rm -d --name "${params.ServiceCurrent}-$BUILD_NUMBER" -p 4040:7070 "${params.ImageName}-$BUILD_NUMBER:$BUILD_NUMBER" 
                     #curl http://172.18.144.193:4040/
                     echo
                     docker ps
                     echo
                     docker ps -a
                     echo
-                    docker stop "$ServiceCurrent-$BUILD_NUMBER"
+                    docker stop "${params.ServiceCurrent}-$BUILD_NUMBER"
                     echo
                     docker image prune
                     echo
-                    docker rmi -f "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER"
+                    docker rmi -f "${params.ImageName}-$BUILD_NUMBER:$BUILD_NUMBER"
                     echo
                     docker images
                 '''
