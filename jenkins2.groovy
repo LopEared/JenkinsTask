@@ -21,8 +21,6 @@ pipeline {
         JOB_NAME            = "${env.JOB_NAME}"
         NODE_NAME           = "${env.NODE_NAME}"
         WORKSPACE           = "${env.WORKSPACE}"
-        ImageName           = "${params.ImageName}"
-        ServiceContainer    = "${params.ServiceCurrent}" 
     }
     stages('WorkFlow') {
         stage('Docker_CI') {
@@ -130,14 +128,14 @@ pipeline {
                     docker images 
                     echo
                     #docker run --rm -d --name ExperCat -p 4040:8080 tomcat:8.5.38
-                    docker run --rm -d --name "$ServiceContainer-$BUILD_NUMBER" -p 4040:7070 "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" 
+                    docker run --rm -d --name "$ServiceCurrent-$BUILD_NUMBER" -p 4040:7070 "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" 
                     #curl http://172.18.144.193:4040/                           # View the web-servcice page 
                     echo
                     docker ps
                     echo
                     docker ps -a
                     echo
-                    docker stop "$ServiceContainer-$BUILD_NUMBER"
+                    docker stop "$ServiceCurrent-$BUILD_NUMBER"
                     echo
                     docker image prune
                     echo
