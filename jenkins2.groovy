@@ -151,19 +151,15 @@ pipeline {
         }
     }
     post {
-        always{
-            steps('WareHousing_artifacts') {
-                echo "<------------Post build actions START-------------->"
-                archiveArtifacts(artifacts: './*.groovy', fingerprint: false, allowEmptyArchive: false)
-                echo "<------------Post build actions Finish------------->"
-            }
+        always('WareHousing_artifacts') {
+            echo "<------------Post build actions START-------------->"
+            archiveArtifacts(artifacts: './*.groovy', fingerprint: false, allowEmptyArchive: false)
+            echo "<------------Post build actions Finish------------->"
         }
-        cleanup{
-            steps('Cleaning') {
-                echo "<------------Cleaning START-------------->"
-                cleanWs(cleanWhenSuccess: true)
-                echo "<------------Cleaning Finish------------->"
-            }
+        cleanup('Cleaning') {
+            echo "<------------Cleaning START-------------->"
+            cleanWs(cleanWhenSuccess: true)
+            echo "<------------Cleaning Finish------------->"
         }
     }     
 }
