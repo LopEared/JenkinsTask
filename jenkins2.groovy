@@ -33,6 +33,12 @@ pipeline {
                     echo "$JOB_NAME"
                     echo "$NODE_NAME"
                     echo "$WORKSPACE"
+                            echo "<-------Start Parameters output section------->"
+                            echo "Name of image: $ImageName"
+                            echo
+                            echo "Name of container: $ServiceCurrent"
+                            echo
+                            echo "<-------Finish Parameters output section------->"
                     echo
                     docker build -t "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" .
                     echo
