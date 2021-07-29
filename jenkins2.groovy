@@ -11,35 +11,28 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '3', artifactNumToKeepStr: '3'))
         timestamps()
     }
+    parameters {
+        choice(name: 'ImageName', choices: ['trainimage', 'assemblimage', 'obraz'], description: 'Take name for docker image for web service')
+        choice(name: 'ServiceCurrent', choices: ['Our_Web_Service', 'ServiceCurrent', 'CurrentContainer'], description: 'Take name for docker container for web service')
+    }
     environment { 
         CC = 'clang'
         BUILD_NUMBER    = "${env.BUILD_NUMBER}"
         JOB_NAME        = "${env.JOB_NAME}"
         NODE_NAME       = "${env.NODE_NAME}"
         WORKSPACE       = "${env.WORKSPACE}"
-        ImageName       = "trainimage"
-    }
-    parameters {
-        choice(name: 'ImageName', choices: ['trainimage', 'assemblimage', 'obraz'], description: 'Take name for docker image for web service')
-        choice(name: 'ServiceCurrent', choices: ['Our_Web_Service', 'ServiceCurrent', 'CurrentContainer'], description: 'Take name for docker container for web service')
+        ImageName       = "${params.ImageName}""
+        ServiceCurrent  = "${params.ServiceCurrent}" 
     }
     stages('WorkFlow') {
         stage('Docker_CI') {
             steps('Create_artifact') {
                 echo "<------------Start build image-------------->"
-                echo "Image name will be: ${params.ImageName}"
-                echo "Container name will be: ${params.ServiceCurrent}"
                 sh '''
                     echo "$BUILD_NUMBER"
                     echo "$JOB_NAME"
                     echo "$NODE_NAME"
                     echo "$WORKSPACE"
-                    echo "<-------Start Parameters output section------->"
-                    echo "Name of image: ${params.ImageName}"
-                    echo
-                    echo "Name of container: ${params.ServiceCurrent}"
-                    echo
-                    echo "<-------Finish Parameters output section------->"
                     echo
                     docker build -t "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" .
                     echo
@@ -131,14 +124,14 @@ pipeline {
                     docker images 
                     echo
                     #docker run --rm -d --name ExperCat -p 4040:8080 tomcat:8.5.38
-                    docker run --rm -d --name "ServiceCurrent-$BUILD_NUMBER" -p 4040:7070 "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" 
+                    docker run --rm -d --name "$ServiceCurrent-$BUILD_NUMBER" -p 4040:7070 "$ImageName-$BUILD_NUMBER:$BUILD_NUMBER" 
                     #curl http://172.18.144.193:4040/                           # View the web-servcice page 
                     echo
                     docker ps
                     echo
                     docker ps -a
                     echo
-                    docker stop "ServiceCurrent-$BUILD_NUMBER"
+                    docker stop "$ServiceCurrent-$BUILD_NUMBER"
                     echo
                     docker image prune
                     echo
@@ -151,18 +144,4 @@ pipeline {
                                     
         }
     }
-    post {
-        always{
-            steps('WareHousing_artifacts') {
-                echo "<------------Post build actions START-------------->"
-                echo "<------------Post build actions Finish------------->"
-            }
-        }
-        cleanup{
-            steps('Cleaning') {
-                echo "<------------Cleaning START-------------->"
-                echo "<------------Cleaning Finish------------->"
-            }
-        }
-    }     
 }
