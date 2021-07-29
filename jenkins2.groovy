@@ -147,19 +147,25 @@ pipeline {
                 '''
                 echo "<----------------------------Finish Deployment service---------------------------------------->"
             }
-                                    
+            post {
+                cleanup('Cleaning') {
+                    echo "<------------Cleaning Slave3 START-------------->"
+                    cleanWs(cleanWhenSuccess: true)
+                    echo "<------------Cleaning Slave3 Finish------------->"
+                }
+            }
         }
     }
     post {
         always('WareHousing_artifacts') {
             echo "<------------Post build actions START-------------->"
-            archiveArtifacts(artifacts: './*.groovy', fingerprint: false, allowEmptyArchive: false)
+            archiveArtifacts(artifacts: '*.groovy', fingerprint: false, allowEmptyArchive: false)
             echo "<------------Post build actions Finish------------->"
         }
         cleanup('Cleaning') {
-            echo "<------------Cleaning START-------------->"
+            echo "<------------Cleaning Slave1 START-------------->"
             cleanWs(cleanWhenSuccess: true)
-            echo "<------------Cleaning Finish------------->"
+            echo "<------------Cleaning Slave1 Finish------------->"
         }
     }     
 }
