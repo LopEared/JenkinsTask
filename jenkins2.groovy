@@ -148,10 +148,16 @@ pipeline {
     }
     post{
         always{
-
+            steps(){
+                echo "<------------Post build actions START-------------->"
+                echo "<------------Post build actions Finish------------->"
+            }
         }
         cleanup{
-
+            steps(){
+                echo "<------------Cleaning START-------------->"
+                echo "<------------Cleaning Finish------------->"
+            }
         }
     }
 }
